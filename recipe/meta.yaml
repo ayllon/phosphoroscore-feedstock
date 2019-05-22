@@ -1,0 +1,40 @@
+package:
+    name: phosphoroscore 
+    version: "0.11"
+
+source:
+    url: https://bintray.com/astrorama/archives/download_file?file_path=PhosphorosCore-0.11.tar.gz 
+
+build:
+    number: 1
+
+test:
+    commands:
+        - $PREFIX/bin/PhosphorosComputeRedshifts --version
+
+requirements:
+    build:
+        - cmake >=3.0
+        - make
+        - {{ compiler('cxx') }}
+    host:
+        - elements ==5.2.2
+        - alexandria ==2.11
+        - boost ==1.69
+        - cfitsio
+        - "CCfits[channel=astrorama]"
+        - python
+        - pytest
+    run:
+        - elements ==5.2.2
+        - alexandria ==2.11
+        - boost ==1.69
+        - cfitsio
+        - "CCfits[channel=astrorama]"
+        - astropy
+
+about:
+    home: http://isdc.unige.ch/euclid/phosphoros/
+    license: LGPL
+    summary: A photometric redshift determination tool based on a template fitting method.
+
