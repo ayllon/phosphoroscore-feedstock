@@ -1,9 +1,9 @@
 package:
     name: phosphoroscore 
-    version: "0.11"
+    version: "0.13"
 
 source:
-    url: https://bintray.com/astrorama/archives/download_file?file_path=PhosphorosCore-0.11.tar.gz 
+    url: https://bintray.com/astrorama/archives/download_file?file_path=PhosphorosCore-0.13.tar.gz 
 
 build:
     number: 1
