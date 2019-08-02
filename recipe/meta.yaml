@@ -20,17 +20,17 @@ requirements:
     host:
         - elements ==5.2.2
         - alexandria ==2.13
-        - boost ==1.69
+        - boost >=1.69
         - cfitsio
-        - "CCfits[channel=astrorama]"
+        - CCfits
         - python
         - pytest
     run:
         - elements ==5.2.2
         - alexandria ==2.13
-        - boost ==1.69
+        - boost >=1.69
         - cfitsio
-        - "CCfits[channel=astrorama]"
+        - CCfits
         - astropy
 
 about:
