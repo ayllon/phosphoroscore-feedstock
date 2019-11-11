@@ -6,7 +6,7 @@ source:
     url: https://bintray.com/astrorama/archive/download_file?file_path=PhosphorosCore-0.15.tar.gz
 
 build:
-    number: 2
+    number: 3
 
 test:
     commands:
