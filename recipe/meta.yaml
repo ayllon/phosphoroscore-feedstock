@@ -1,9 +1,9 @@
 package:
     name: phosphoroscore 
-    version: "0.13"
+    version: "0.15"
 
 source:
-    url: https://bintray.com/astrorama/archives/download_file?file_path=PhosphorosCore-0.13.tar.gz 
+    url: https://bintray.com/astrorama/archive/download_file?file_path=PhosphorosCore-0.15.tar.gz
 
 build:
     number: 1
@@ -18,16 +18,16 @@ requirements:
         - make
         - {{ compiler('cxx') }}
     host:
-        - elements ==5.2.2
-        - alexandria ==2.13
+        - elements ==5.8
+        - alexandria ==2.15
         - boost >=1.69
         - cfitsio
         - CCfits
         - python
         - pytest
     run:
-        - elements ==5.2.2
-        - alexandria ==2.13
+        - elements ==5.8
+        - alexandria ==2.15
         - boost >=1.69
         - cfitsio
         - CCfits
