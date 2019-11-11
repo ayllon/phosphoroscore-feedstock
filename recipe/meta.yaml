@@ -6,7 +6,7 @@ source:
     url: https://bintray.com/astrorama/archive/download_file?file_path=PhosphorosCore-0.15.tar.gz
 
 build:
-    number: 1
+    number: 2
 
 test:
     commands:
@@ -20,7 +20,7 @@ requirements:
     host:
         - elements ==5.8
         - alexandria ==2.15
-        - boost >=1.69
+        - boost-cpp ==1.70
         - cfitsio
         - CCfits
         - python
@@ -28,7 +28,7 @@ requirements:
     run:
         - elements ==5.8
         - alexandria ==2.15
-        - boost >=1.69
+        - boost-cpp ==1.70
         - cfitsio
         - CCfits
         - astropy
