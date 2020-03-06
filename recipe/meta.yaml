@@ -11,7 +11,7 @@ build:
 
 test:
     commands:
-        - $PREFIX/bin/Phosphoros --version
+        - $PREFIX/bin/PhosphorosComputeModelSed --help
 
 requirements:
     build:
