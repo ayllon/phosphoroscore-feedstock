@@ -1,6 +1,6 @@
 package:
     name: phosphoroscore 
-    version: {{ GIT_DESCRIBE_TAG }}
+    version: "2.15"
 
 source:
     git_rev: develop
