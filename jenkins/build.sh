@@ -32,6 +32,7 @@ export CONDARC="$(pwd)/condarc"
 source "$(pwd)/miniconda3/bin/activate" root
 conda config --file "$CONDARC" --add channels conda-forge
 conda config --file "$CONDARC" --add channels astrorama
+conda config --file "$CONDARC" --add channels astrorama/label/develop
 
 conda install --yes --quiet conda-build
 
