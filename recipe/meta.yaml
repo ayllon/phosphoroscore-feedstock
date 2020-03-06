@@ -1,16 +1,17 @@
 package:
     name: phosphoroscore 
-    version: "0.15"
+    version: {{ GIT_DESCRIBE_TAG }}
 
 source:
-    url: https://bintray.com/astrorama/archive/download_file?file_path=PhosphorosCore-0.15.tar.gz
+    git_rev: develop
+    git_url: https://{{ environ.get('GIT_USER', '') }}@gitlab.euclid-sgs.uk/PF-PHZ/PhosphorosCore.git
 
 build:
-    number: 3
+    number: 1
 
 test:
     commands:
-        - $PREFIX/bin/PhosphorosComputeRedshifts --version
+        - $PREFIX/bin/Phosphoros --version
 
 requirements:
     build:
