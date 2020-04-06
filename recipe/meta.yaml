@@ -19,7 +19,7 @@ requirements:
         - make
         - {{ compiler('cxx') }}
     host:
-        - elements ==5.8
+        - elements ==5.10
         - alexandria ==2.15
         - boost-cpp ==1.70
         - cfitsio
@@ -27,12 +27,10 @@ requirements:
         - python
         - pytest
     run:
-        - elements ==5.8
-        - alexandria ==2.15
         - boost-cpp ==1.70
-        - cfitsio
-        - CCfits
-        - astropy
+        - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
+        - {{ pin_compatible('CCfits') }} 
+        - {{ pin_compatible('astropy') }}
 
 about:
     home: http://isdc.unige.ch/euclid/phosphoros/
