@@ -50,5 +50,15 @@ fi
 # Build
 #####################################################################
 
-conda build --no-anaconda-upload ./recipe
+if [ "$GIT_BRANCH" = "master" ]; then
+    LABELS="main"
+else
+    LABELS="$GIT_BRACH"
+fi
+
+if [ -n "${ANACONDA_TOKEN}" ]; then
+    conda build --no-force-upload --user "$ANACONDA_USER" --token "$ANACONDA_TOKEN" --label "$LABELS" ./recipe
+else
+    conda build --no-anaconda-upload ./recipe
+fi
 ls -lh
