@@ -1,6 +1,8 @@
 #!/bin/sh
 set -x
 
+env
+
 OS=$(uname -s)
 if [ "$OS" = "Darwin" ]; then
     OS_LABEL=osx-64
@@ -50,7 +52,7 @@ fi
 # Build
 #####################################################################
 
-if [ "$GIT_BRANCH" = "master" ]; then
+if [ "$GIT_BRANCH" = "origin/master" ]; then
     LABELS="main"
 else
     LABELS="$GIT_BRACH"
