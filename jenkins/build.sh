@@ -37,6 +37,7 @@ conda config --file "$CONDARC" --add channels astrorama
 conda config --file "$CONDARC" --add channels astrorama/label/develop
 
 conda install --yes --quiet conda-build
+conda install --yes --quiet anaconda-client
 
 #####################################################################
 # Configure MacOSX SDK
