@@ -60,7 +60,7 @@ else
 fi
 
 if [ -n "${ANACONDA_TOKEN}" ]; then
-    conda build --no-force-upload --user "$ANACONDA_USER" --token "$ANACONDA_TOKEN" --label "$LABELS" ./recipe
+    conda build --user "$ANACONDA_USER" --token "$ANACONDA_TOKEN" --label "$LABELS" ./recipe
 else
     conda build --no-anaconda-upload ./recipe
 fi
