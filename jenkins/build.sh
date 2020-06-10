@@ -56,7 +56,7 @@ fi
 if [ "$GIT_BRANCH" = "origin/master" ]; then
     LABELS="main"
 else
-    LABELS="$GIT_BRACH"
+    LABELS="${GIT_BRANCH#origin/}"
 fi
 
 if [ -n "${ANACONDA_TOKEN}" ]; then
