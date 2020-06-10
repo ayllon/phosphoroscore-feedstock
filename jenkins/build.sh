@@ -1,6 +1,8 @@
 #!/bin/sh
 set -x
 
+env
+
 OS=$(uname -s)
 if [ "$OS" = "Darwin" ]; then
     OS_LABEL=osx-64
@@ -35,6 +37,7 @@ conda config --file "$CONDARC" --add channels astrorama
 conda config --file "$CONDARC" --add channels astrorama/label/develop
 
 conda install --yes --quiet conda-build
+conda install --yes --quiet anaconda-client
 
 #####################################################################
 # Configure MacOSX SDK
@@ -50,14 +53,14 @@ fi
 # Build
 #####################################################################
 
-if [ "$GIT_BRANCH" = "master" ]; then
+if [ "$GIT_BRANCH" = "origin/master" ]; then
     LABELS="main"
 else
     LABELS="$GIT_BRACH"
 fi
 
 if [ -n "${ANACONDA_TOKEN}" ]; then
-    conda build --no-force-upload --user "$ANACONDA_USER" --token "$ANACONDA_TOKEN" --label "$LABELS" ./recipe
+    conda build --user "$ANACONDA_USER" --token "$ANACONDA_TOKEN" --label "$LABELS" ./recipe
 else
     conda build --no-anaconda-upload ./recipe
 fi
