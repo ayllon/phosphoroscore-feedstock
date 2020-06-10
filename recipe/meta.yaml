@@ -1,6 +1,6 @@
 package:
     name: phosphoroscore 
-    version: "0.15"
+    version: "0.16"
 
 source:
     git_rev: develop
@@ -20,7 +20,7 @@ requirements:
         - {{ compiler('cxx') }}
     host:
         - elements ==5.10
-        - alexandria ==2.15
+        - alexandria ==2.16
         - boost-cpp ==1.70
         - cfitsio
         - CCfits
