@@ -22,10 +22,10 @@ requirements:
         - elements ==5.10
         - alexandria ==2.16
         - boost-cpp ==1.70
-        - cfitsio
-        - CCfits
-        - python
-        - pytest
+        - cfitsio >=3.470
+        - CCfits >=2.5
+        - python >=3.8
+        - pytest >=5.3
     run:
         - boost-cpp ==1.70
         - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
