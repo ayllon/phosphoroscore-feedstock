@@ -1,6 +1,6 @@
 package:
     name: phosphoroscore 
-    version: "0.17"
+    version: "0.18"
 
 source:
     git_rev: develop
