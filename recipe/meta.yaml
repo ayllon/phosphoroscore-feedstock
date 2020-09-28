@@ -1,13 +1,15 @@
 package:
     name: phosphoroscore 
-    version: "0.15"
+    version: "0.17"
 
 source:
-    git_rev: "0.15" 
+    git_rev: "0.17"
     git_url: https://{{ environ.get('GIT_USER', '') }}@gitlab.euclid-sgs.uk/PF-PHZ/PhosphorosCore.git
 
 build:
-    number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+    number: 1
+    run_exports:
+      - {{ pin_subpackage('phosphoroscore', max_pin='x.x.x') }}
 
 test:
     commands:
@@ -20,12 +22,12 @@ requirements:
         - {{ compiler('cxx') }}
     host:
         - elements ==5.10
-        - alexandria ==2.15
+        - alexandria ==2.17
         - boost-cpp ==1.70
-        - cfitsio
-        - CCfits
-        - python
-        - pytest
+        - cfitsio >=3.470
+        - CCfits >=2.5
+        - python >=3.8
+        - pytest >=5.3
     run:
         - boost-cpp ==1.70
         - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}

@@ -14,30 +14,38 @@ fi
 # Get Miniconda
 #####################################################################
 
-MINICONDA_URL="https://repo.continuum.io/miniconda"
-if [ "$OS" = "Darwin" ]; then
-    MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
-else
-    MINICONDA_FILE="Miniconda3-latest-Linux-x86_64.sh"
+if [ ! -d "${HOME}/miniconda3" ]; then
+    MINICONDA_URL="https://repo.continuum.io/miniconda"
+    if [ "$OS" = "Darwin" ]; then
+        MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+    else
+        MINICONDA_FILE="Miniconda3-latest-Linux-x86_64.sh"
+    fi
+    if [ ! -f "${MINICONDA_FILE}" ]; then
+        curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
+    fi
+    bash $MINICONDA_FILE -b -p "${HOME}/miniconda3"
 fi
-if [ ! -f "${MINICONDA_FILE}" ]; then
-    curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
-fi
-bash $MINICONDA_FILE -b -p "$(pwd)/miniconda3"
 
 #####################################################################
 # Activate and configure
 #####################################################################
 
 export CONDARC="$(pwd)/condarc"
+export CONDA_ENVS_PATH="$(pwd)/condaenv"
 
-source "$(pwd)/miniconda3/bin/activate" root
-conda config --file "$CONDARC" --add channels conda-forge
-conda config --file "$CONDARC" --add channels astrorama
-conda config --file "$CONDARC" --add channels astrorama/label/develop
+source "${HOME}/miniconda3/bin/activate" root
 
-conda install --yes --quiet conda-build
-conda install --yes --quiet anaconda-client
+conda config --file "${CONDARC}" --add channels conda-forge
+conda config --file "${CONDARC}" --add channels astrorama
+conda config --file "${CONDARC}" --add channels astrorama/label/develop
+
+conda config --file "${CONDARC}" --set channel_priority flexible 
+
+conda create --yes -n build
+conda activate build
+
+conda install --yes --quiet conda-build anaconda-client
 
 #####################################################################
 # Configure MacOSX SDK
@@ -56,7 +64,7 @@ fi
 if [ "$GIT_BRANCH" = "origin/master" ]; then
     LABELS="main"
 else
-    LABELS="$GIT_BRACH"
+    LABELS="${GIT_BRANCH#origin/}"
 fi
 
 if [ -n "${ANACONDA_TOKEN}" ]; then
@@ -65,3 +73,4 @@ else
     conda build --no-anaconda-upload ./recipe
 fi
 ls -lh
+
