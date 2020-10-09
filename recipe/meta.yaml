@@ -5,6 +5,8 @@ package:
 source:
     git_rev: develop
     git_url: https://{{ environ.get('GIT_USER', '') }}@gitlab.euclid-sgs.uk/PF-PHZ/PhosphorosCore.git
+    patches:
+      - alexandria_2.17.1.patch
 
 build:
     number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
@@ -22,7 +24,7 @@ requirements:
         - {{ compiler('cxx') }}
     host:
         - elements ==5.10
-        - alexandria ==2.17
+        - alexandria ==2.17.1
         - boost-cpp ==1.70
         - cfitsio >=3.470
         - CCfits >=2.5
