@@ -1,0 +1,3 @@
+*.bck
+*.pyc
+build_artifacts
