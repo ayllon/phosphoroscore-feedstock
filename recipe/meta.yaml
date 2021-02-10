@@ -1,13 +1,17 @@
+{% set name = "PhosphorosCore" %}
+{% set version = "0.17.1" %}
+{% set build_number = 1 %}
+
 package:
-    name: phosphoroscore 
-    version: "0.17"
+    name: {{ name|lower }}
+    version: {{ version }}
 
 source:
-    git_rev: "0.17"
+    git_rev: {{ version }}
     git_url: https://{{ environ.get('GIT_USER', '') }}@gitlab.euclid-sgs.uk/PF-PHZ/PhosphorosCore.git
 
 build:
-    number: 1
+    number: {{ build_number }}
     run_exports:
       - {{ pin_subpackage('phosphoroscore', max_pin='x.x.x') }}
 
@@ -20,17 +24,19 @@ requirements:
         - cmake >=3.0
         - make
         - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
+        - python                             # [build_platform != target_platform]
+        - cross-python_{{ target_platform }} # [build_platform != target_platform]
     host:
-        - elements ==5.10
-        - alexandria ==2.17
-        - boost-cpp ==1.70
+        - python
+        - boost-cpp
+        - elements ==5.12
+        - alexandria ==2.17.1
         - cfitsio >=3.470
         - CCfits >=2.5
-        - python >=3.8
-        - pytest >=5.3
     run:
-        - boost-cpp ==1.70
         - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
+        - {{ pin_compatible('boost-cpp', min_pin='x.x', max_pin='x.x') }}
         - {{ pin_compatible('CCfits') }} 
         - {{ pin_compatible('astropy') }}
 

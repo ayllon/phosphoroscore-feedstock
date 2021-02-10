@@ -1,0 +1,27 @@
+channels:
+    targets:
+      - ["astrorama", "develop"]
+
+test_on_native_only: true
+
+provider:
+  linux: azure
+  osx: azure
+  win: None
+
+azure:
+  store_build_artifacts: False
+
+secrets: ["GIT_USER", "GIT_TOKEN"]
+
+recipe_dir: recipe
+
+skip_render:
+  - README.md
+  - LICENSE.txt
+  - LICENSE
+  - .github/CONTRIBUTING.md
+  - .github/ISSUE_TEMPLATE.md
+  - .github/PULL_REQUEST_TEMPLATE.md
+  - .github/workflows
+
