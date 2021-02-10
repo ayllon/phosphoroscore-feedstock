@@ -37,6 +37,7 @@ echo -e "\n\nMangling homebrew in the CI to avoid conflicts."
 
 echo -e "\n\nRunning the build setup script."
 source run_conda_forge_build_setup
+export GIT_ASKPASS="$(dirname "$0")/git-askpass.sh"
 
 
 if [[ ${CI} == "travis" ]]; then
