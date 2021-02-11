@@ -9,8 +9,6 @@ package:
 source:
     git_rev: develop
     git_url: https://{{ environ.get('GIT_USER', '') }}@gitlab.euclid-sgs.uk/PF-PHZ/PhosphorosCore.git
-    patches:
-      - alexandria_2.17.1.patch
 
 build:
     number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
