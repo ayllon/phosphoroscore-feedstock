@@ -33,7 +33,7 @@ requirements:
         - python
         - boost-cpp
         - elements ==5.12
-        - alexandria ==2.17.1
+        - alexandria ==2.19
         - cfitsio >=3.470
         - CCfits >=2.5
     run:
