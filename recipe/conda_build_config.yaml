@@ -2,7 +2,7 @@ channel_sources:
   - astrorama/label/develop,astrorama,conda-forge,defaults
 
 channel_targets:
-  - astrorama develop
+  - astrorama scale_factor_sampling
 
 python:
   # part of a zip_keys: python, python_impl, numpy
