@@ -30,15 +30,14 @@ requirements:
     host:
         - python
         - boost-cpp
-        - elements ==5.12
         - alexandria ==2.17.1
         - cfitsio >=3.470
         - CCfits >=2.5
     run:
         - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
         - {{ pin_compatible('boost-cpp', min_pin='x.x', max_pin='x.x') }}
-        - {{ pin_compatible('CCfits') }} 
-        - {{ pin_compatible('astropy') }}
+        - {{ pin_compatible('CCfits', min_pin='x.x', max_pin='x.x') }}
+        - {{ pin_compatible('astropy', min_pin='x.x', max_pin='x') }}
 
 about:
     home: http://isdc.unige.ch/euclid/phosphoros/
