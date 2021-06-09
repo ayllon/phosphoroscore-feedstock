@@ -4,6 +4,9 @@ channels:
 
 test_on_native_only: true
 
+build_platform:
+  osx_arm64: osx_64
+
 provider:
   linux: azure
   osx: azure
