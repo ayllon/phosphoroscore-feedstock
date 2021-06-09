@@ -44,6 +44,7 @@ fi
 
 echo -e "\n\nRunning the build setup script."
 source run_conda_forge_build_setup
+export GIT_ASKPASS="$(dirname "$0")/git-askpass.sh"
 
 
 
