@@ -1,5 +1,5 @@
 {% set name = "PhosphorosCore" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 {% set build_number = 1 %}
 
 package:
@@ -31,7 +31,7 @@ requirements:
     host:
         - python
         - boost-cpp
-        - alexandria ==2.20
+        - alexandria ==2.21.0
         - cfitsio >=3.470
         - CCfits >=2.5
     run:
